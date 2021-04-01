@@ -42,29 +42,32 @@ describe('buffer routes', () => {
   //GET student by ID test
   it('should get a student from the database by ID', () => {
     return request(app)
-    .get('/api/v/students/${student.id}')
+    .get(`/api/v1/students/${student.id}`)
     .then((studentId) => {
-      expect(studentId.body).toEqual([student]);
+      expect(studentId.body).toEqual(student);
     })
   })
 
-  // //Update student by ID
-  // it('should post a new student to the database and send a welcome text message', () => {
-  //   return request(app)
-  //   .put('/api/v1/students')
-  //   .send({studentName: 'Shelby Strouse', grade: 'A'})
-  //   .then(() => {
-  //     expect(twilio.sendSms).toHaveBeenCalledTimes(1);
-  //   })
-  // })
+  //Update student by ID
+  it('should update a students grade in the database', () => {
+const newGrade = {id: '1', studentName: 'Shelby Strouse', grade: 'A-'}
 
-  // //Delete student by ID
-  // it('should post a new student to the database and send a welcome text message', () => {
-  //   return request(app)
-  //   .delete('/api/v1/students')
-  //   .send({studentName: 'Shelby Strouse', grade: 'A'})
-  //   .then(() => {
-  //     expect(twilio.sendSms).toHaveBeenCalledTimes(1);
-  //   })
-  // })
+    return request(app)
+    .put(`/api/v1/students/${student.id}`)
+    .send(newGrade)
+    .then((studentGrade) => {
+      expect(studentGrade.body).toEqual(newGrade);
+    })
+  })
+
+  //Delete student by ID
+  it('should delete a student by ID from the database', () => {
+    // const deleteStudent = {id: '1', studentName: 'Shelby Strouse', grade: 'A'}
+    return request(app)
+    .delete(`/api/v1/students${student.id}`)
+    .send(student)
+    .then((oldStudent) => {
+      expect(oldStudent.body).toEqual('');
+    })
+  })
 });
