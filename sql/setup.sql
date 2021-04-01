@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS students;
 
-CREATE TABLE studens (
+CREATE TABLE students (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     student_name TEXT NOT NULL,
-    grade TEXT NOT NULL,
+    grade TEXT NOT NULL
 );
