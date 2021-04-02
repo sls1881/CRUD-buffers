@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&display=swap" rel="stylesheet">
+    <title>Students</title>
+</head>
+<body>
+<main>
+    <h1>Student Entry</h1>
+    <form id='new-student'>
+        <fieldset>
+            <legend>Add a New Student</legend>
+            <label>
+                Student's Name
+                <input type='text' name='student'/>
+            </label>
+            <label>
+                Student's Grade
+                <input type='text' name='grade'/>
+            </label>
+            <button id = 'button'>Create New Student</button>
+        </fieldset>
+    </form>
+<br/>
+    <section>
+        <h1>Student Directory</h1>
+        <ol id='student-list'></ol>
+    </section>
+</main>
+    <script type="module" src="/index.js"></script>
+</body>
+</html>
