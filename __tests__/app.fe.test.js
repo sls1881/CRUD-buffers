@@ -4,7 +4,6 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Student = require('../lib/models/Student');
 
-const twilio = require('../lib/utils/twilio.js'); 
 jest.mock('../lib/utils/twilio.js');
 
  describe('buffer routes', () => {
