@@ -1,0 +1,19 @@
+body, button, input {
+    font-family: 'Lato', sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+ol {
+    text-align: start;
+}
+
+legend {
+    padding-bottom: 10px;
+}
+
+fieldset {
+    padding: 20px;
+}
