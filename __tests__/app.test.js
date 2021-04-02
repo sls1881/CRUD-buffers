@@ -24,7 +24,7 @@ describe('buffer routes', () => {
   it('should post a new student to the database and send a welcome text message', () => {
     return request(app)
     .post('/api/v1/students')
-    .send({studentName: 'Shelby Strouse', grade: 'A'})
+    .send(student)
     .then(() => {
       expect(twilio.sendSms).toHaveBeenCalledTimes(1);
     })
@@ -62,12 +62,10 @@ const newGrade = {id: '1', studentName: 'Shelby Strouse', grade: 'A-'}
 
   //Delete student by ID
   it('should delete a student by ID from the database', () => {
-    // const deleteStudent = {id: '1', studentName: 'Shelby Strouse', grade: 'A'}
     return request(app)
-    .delete(`/api/v1/students${student.id}`)
-    .send(student)
+    .delete(`/api/v1/students/${student.id}`)
     .then((oldStudent) => {
-      expect(oldStudent.body).toEqual('');
+      expect(oldStudent.body).toEqual(student);
     })
   })
 });
